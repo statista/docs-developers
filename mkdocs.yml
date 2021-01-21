@@ -1,0 +1,21 @@
+site_name: docs 
+site_description: Statista 4.0 documentation
+theme:
+        name: 'material'
+        favicon: 'images/favicon.ico'
+        logo: 'images/stat_logo_white.png'
+        extra_css:
+                - 'stylesheets/extra.css'
+
+extra:
+        social:
+                - icon: fontawesome/brands/bitbucket
+                  link: https://bitbucket.org/statista/
+                - icon: fontawesome/brands/jira
+                  link: https://statista.atlassian.net
+                - icon: fontawesome/brands/confluence
+                  link: https://statista.atlassian.net/wiki/home
+                - icon: fontawesome/brands/aws
+                  link: https://aws.statista.tech
+
+               
