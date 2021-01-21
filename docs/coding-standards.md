@@ -1,1 +1,1 @@
-this is the place to add tutorials
+this is the place to coding standards
