@@ -1,1 +1,1 @@
-this is the place to coding standards
+this is the place to put our coding standards
