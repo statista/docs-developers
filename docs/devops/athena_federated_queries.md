@@ -1,6 +1,6 @@
 #ATHENA FEDERATED QUERY ACCESS
 
-!!!  warning "only supported in USE at the moment"
+!!! warning "only supported in USE at the moment"
 this is only supported in the AWS us-east-1 region at the moment
 
 * check if Athena Engine 2.0. gets used (_Workgroup settings_)

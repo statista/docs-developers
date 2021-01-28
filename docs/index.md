@@ -11,7 +11,7 @@ iterative as part of ongoing change of whatever (software development, business 
 
 ###1.3. Questions / Decisions
 * handled in slices or general or both?
-* in each bundle or general doc repo (github.com/statista/docs-developers)?
+* in each bundle or [general doc repo](https://github.com/statista/docs-developers) ?
 * do we use that for external docs as well (e.g. api)?
 
 ##2. Writing Documentation
@@ -138,3 +138,41 @@ quote
 ```
 !!! quote "quote"
 The path of the righteous man is beset on all sides by the inequities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children.
+
+### Task-Lists
+```
+- [x] Oh! Ah man, sh--.... Ah man I shot Marvin in the face
+- [x] Why the fuck d'you do that!?
+    * [ ] Well I didn't mean to do it, it was an accident.
+    * [ ] Ah man, I've seen some crazy-ass shit in my time but this ---
+- [x]  Ah man, I've seen some crazy-ass shit in my time but this...
+```
+
+- [x] Oh! Ah man, sh--.... Ah man I shot Marvin in the face
+- [x] Why the fuck d'you do that!?
+    * [ ] Well I didn't mean to do it, it was an accident.
+    * [ ] Ah man, I've seen some crazy-ass shit in my time but this ---
+- [x]  Ah man, I've seen some crazy-ass shit in my time but this...
+
+### Data Tables
+
+```
+| Method      | Description                          |
+| ----------- | ------------------------------------ |
+| `GET`       | :material-check:     Fetch resource  |
+| `PUT`       | :material-check-all: Update resource |
+| `DELETE`    | :material-close:     Delete resource |
+```
+
+| Method      | Description                          |
+| ----------- | ------------------------------------ |
+| `GET`       | :material-check:     Fetch resource  |
+| `PUT`       | :material-check-all: Update resource |
+| `DELETE`    | :material-close:     Delete resource |
+
+### Keyboard Keys
+```
+++ctrl+alt+del++
+```
+
+++ctrl+alt+del++

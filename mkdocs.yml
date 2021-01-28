@@ -27,3 +27,6 @@ markdown_extensions:
   - pymdownx.tilde
   - admonition
   - pymdownx.critic
+  - pymdownx.keys
+  - pymdownx.tasklist:
+      custom_checkbox: true

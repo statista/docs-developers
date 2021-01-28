@@ -1,1 +1,0 @@
-this is the place to put our DevOps documentation
