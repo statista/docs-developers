@@ -137,6 +137,7 @@ _**prerequisite**_: [configure AWS-CLI](aws_cli)
 * Create Lambda Function _cloudfrontMkdocsSubdirectoryHandler_
     * Edit IAM Permissions -> [add trust relationship](https://stackoverflow.com/questions/53796032/cannot-create-aws-lamda-function-due-to-some-cryptic-error-message)
     * edit function
+  
     ```
     const path = require('path');
     

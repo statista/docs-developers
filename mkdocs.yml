@@ -18,4 +18,7 @@ extra:
                 - icon: fontawesome/brands/aws
                   link: https://aws.statista.tech
 
+markdown_extensions:
+  - abbr
+  - pymdownx.snippets
                

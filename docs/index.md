@@ -13,6 +13,23 @@ iterative as part of ongoing change of whatever (software development, business 
 * do we use that for external docs as well (e.g. api)?
 
 ##2. Writing Documentation
-###2.1. mkdocs
-####2.1.1. Installation
-####2.1.2. Markdown Formats
+#### [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+#### Installed Extras and usage
+### Abbreviations
+abbreviations can be defined with a special syntax similar to URLs and footnotes at any point in the Markdown document.
+```    
+The HTML specification is maintained by the W3C.
+
+*[HTML]: Hyper Text Markup Language
+*[W3C]: World Wide Web Consortium
+```
+
+### Glossary
+abbreviations can also get included from a central file – a glossary – and embed them into any other file.
+
+_Result:_
+
+The HTML specification is maintained by the W3C.
+```    
+--8<-- "includes/abbreviations.md"
+```
