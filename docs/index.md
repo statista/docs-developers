@@ -39,3 +39,24 @@ The HTML specification is maintained by the W3C.
 ### Smart Symbols
 
 Automatically displays readable symbols(tm), see [official documentation](https://facelessuser.github.io/pymdown-extensions/extensions/smartsymbols/)
+
+### Highlighting
+- ==This was marked==
+- ^^This was inserted^^
+- ~~This was deleted~~
+
+```
+- ==This was marked==
+- ^^This was inserted^^
+- ~~This was deleted~~
+```
+
+Text can be {--deleted--} and replacement text {++added++}. This can also be
+combined into {~~one~>a single~~} operation. {==Highlighting==} is also
+possible {>>and comments can be added inline<<}.
+
+```
+Text can be {--deleted--} and replacement text {++added++}. This can also be
+combined into {~~one~>a single~~} operation. {==Highlighting==} is also
+possible {>>and comments can be added inline<<}.
+```

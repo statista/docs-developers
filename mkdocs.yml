@@ -22,4 +22,6 @@ markdown_extensions:
   - abbr
   - pymdownx.snippets
   - pymdownx.smartsymbols
-               
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
