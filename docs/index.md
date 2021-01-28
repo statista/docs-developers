@@ -35,3 +35,7 @@ The HTML specification is maintained by the W3C.
 ```    
 --8<-- "includes/abbreviations.md"
 ```
+
+### Smart Symbols
+
+Automatically displays readable symbols(tm), see [official documentation](https://facelessuser.github.io/pymdown-extensions/extensions/smartsymbols/)

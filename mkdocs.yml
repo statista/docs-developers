@@ -21,4 +21,5 @@ extra:
 markdown_extensions:
   - abbr
   - pymdownx.snippets
+  - pymdownx.smartsymbols
                
