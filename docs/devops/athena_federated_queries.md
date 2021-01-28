@@ -1,14 +1,14 @@
 #ATHENA FEDERATED QUERY ACCESS
 
-!!! warning "only supported in USE at the moment"
-this is only supported in the AWS us-east-1 region at the moment
+!!! warning "only supported in AWS us-east-1 region at the moment"
 
+#### Add MySQL Database / RDS connection
 * check if Athena Engine 2.0. gets used (_Workgroup settings_)
 * add datasource
 * choose _MySQL_
 * choose _Add Lambda_ -> use given Cloudformation Script
 
-####_Parameters_:
+**_Parameters_:**
 * add IAM role "LambdaSecretsManagerAccess" to Lambda IAM Role
   
 ```
