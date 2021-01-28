@@ -19,6 +19,12 @@ iterative as part of ongoing change of whatever (software development, business 
 #### Installed Extras and usage
 ### Abbreviations
 abbreviations can be defined with a special syntax similar to URLs and footnotes at any point in the Markdown document.
+
+The HTML specification is maintained by the W3C.
+
+*[HTML]: Hyper Text Markup Language
+*[W3C]: World Wide Web Consortium
+
 ```    
 The HTML specification is maintained by the W3C.
 
@@ -31,7 +37,7 @@ abbreviations can also get included from a central file – a glossary – and e
 
 _Result:_
 
-The HTML specification is maintained by the W3C.
+The Content-Mixer is used in Statista's Queuing to enrich content data with user data. It consumes messages created by the Content MLS.
 ```    
 --8<-- "includes/abbreviations.md"
 ```
