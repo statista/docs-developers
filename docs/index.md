@@ -66,3 +66,67 @@ Text can be {--deleted--} and replacement text {++added++}. This can also be
 combined into {~~one~>a single~~} operation. {==Highlighting==} is also
 possible {>>and comments can be added inline<<}.
 ```
+
+### Notes
+
+[More Information & Examples](https://squidfunk.github.io/mkdocs-material/reference/admonitions/)
+
+#### Simple Example
+!!! note
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+massa, nec semper lorem quam in massa.
+
+```
+!!! note
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+massa, nec semper lorem quam in massa.
+```
+
+#### Changing Title
+!!! note "changed title"
+xxx
+
+```
+!!! note "changed title"
+xxx
+```
+
+#### Collapsible Title
+??? note
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+massa, nec semper lorem quam in massa.
+
+```
+??? note
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+massa, nec semper lorem quam in massa.
+```
+
+#### Supported Types
+```
+abstract
+```
+!!! abstract "abstract"
+xxx
+
+```
+warning
+```
+!!! warning "warning"
+xxx
+
+```
+info
+```
+!!! info "info"
+xxx
+
+```
+tip
+```
+!!! tip "tip"
+xxx
