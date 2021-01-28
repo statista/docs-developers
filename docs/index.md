@@ -1,3 +1,5 @@
+--8<-- "includes/abbreviations.md"
+
 # Developer Docs STAT4.0
 
 ##1. General
