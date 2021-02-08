@@ -1,4 +1,4 @@
-#SECRETS MANAGER
+# Secrets Manager
 
 ### Setup Secrets Manager in private VPC
 * enable dns hostnames support in the VPC

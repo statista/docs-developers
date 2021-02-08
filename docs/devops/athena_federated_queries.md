@@ -1,4 +1,4 @@
-#ATHENA FEDERATED QUERY ACCESS
+# Athena Federated Queries
 
 !!! warning "only supported in AWS us-east-1 region at the moment"
 

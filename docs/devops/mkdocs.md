@@ -44,7 +44,7 @@ extra_css:
 
 ##3. S3 Hosting Setup
 
-!!! warning "pre-requisite: [configure AWS-CLI](aws_cli)"
+!!! warning "pre-requisite: [configure AWS-CLI](aws_cli.md)"
 
 
 ### Create S3 bucket & subdomain with [Cloudformation Template](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-s3.html)
