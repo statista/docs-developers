@@ -1,8 +1,6 @@
-# docs-developers
+# Specify the Future, don't document the past
 this mkdocs documentation might build the foundation for a more developer-centric documentation of the next version of statista (aka Statista 4.0).
 
-refer to docs/index.md
+for more information refer to docs/index.md
 
-and always remember
-
-#Specify the Future, don't document the past
+documentation will be available on docs.statista.tech
