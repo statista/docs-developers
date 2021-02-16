@@ -37,49 +37,41 @@ A future-proof reimplementation should:
 
 For the implementation of the Statista 4.0 content distribution process we rely on the concept of a data lake in order to store all data produced by either the content editors (ERI), data scientists (SMI), data analysts (R&A) as well as 3rd party raw content (e.g. CompanyDB).
 
-Taking the Statista data lake as the foundation we are continuously processing the data according to the needs of the recipient (e.g. frontend or search) and it's underlying technology - e.g. if data is needed in search the responsible developer has to adjust the data process to include the data in question. Through building this foundation every slice / project can pick the data they want to have from the well-documented data lake and transform it to their needs. We do not need to store all data in every technology "just-in-case-of". This also shifts the responsibility to the according slice and in a well-architected scenario helps to fix performance problems and addresses data compliance easily. 
-
-In order to set up this distribution process, we do have to set up ETL processes in order to process the data on a regular basis.
-> **Open Question:** This should be as often as possible, but only as often as necessary. As a thumb-rule we should refresh all data at least every three hours but shouldn't refresh more than once in fifteen minutes.
-
 <img src="0002-content-distribution-40-context.png" />
 
-* Introduction of new named concepts
-  
-- Data Lake
-- ETL Processes / Glue
-- Event Stream
+Taking the Statista data lake as the foundation we are continuously processing the data according to the needs of the recipient (e.g. frontend or search) and it's underlying technology - e.g. if data is needed in search the responsible developer has to adjust the data process to include the data in question. Through building this foundation every slice / project can pick the data they want to have from the well-documented data lake and transform it to their needs. We do not need to store all data in every technology "just-in-case-of". This also shifts the responsibility to the according slice and in a well-architected scenario helps to fix performance problems and addresses data compliance easily. 
 
-* Explain things in terms of examples
-* Explain the impact and how you want developers to approach the feature and its goals
-* If applicable, provide sample errors / warnings / or migration guidance
-* If applicable, describe the differences required teaching this to new developers vs existing developers
+In order to set up this distribution process, we do have to implement ETL processes in order to process the data on a regular basis.
+> **Open Question:** This should be as often as possible, but only as often as necessary. As a thumb-rule we should refresh all data at least every three hours but shouldn't refresh more than once in fifteen minutes.
+
+This process introduces a few new concepts which we will describe here
+### Event Stream
+
+In our implementation the event stream can be described as another way of queuing with the ability to playback historic events. This way we can easily revert changes or reapply changes to the queue. More functionality is available but not necessary for our case.
+
+### Data Lake
+
+Can be described as a data sink where all data is stored. This is useful for providing a central data repository, as a backup (versioning is easily possible) and in our case as the source for data transformations. We have been using S3 as a data sink for a long time, so we already have a lot of data foundation (e.g. webserver logs since 2016). 
+
+### ETL Processes
+
+A process to **E**xtract, **T**ransform and **L**oad the data from the data lake to the database or search index it uses - only the fields and data that is needed
+
+
+In this context other processes often state the use of data warehouses to analyze and process the data in data lakes - in our case this isn't necessary as state-of-the-art data lakes get more functions like this as well (data lakehouses) and data warehouses are very expensive in production.  
+
 
 # Reference Implementation
-This section provides space for deep technical details as required in the RFC. You need to hit on the following points in your reference implementation:
+In a perfect scenario we do not have to change a lot as content is processed from the old implementation to the new distribution process by only adding another consumer to the queuing system that does write the messages to the event stream.
 
-* It's interaction with other features / infrastructure
-* It is reasonably clear how this would be implemented
-* Corner cases are addressed through example
-
-You can (and should) expand on the examples you used in the Guide Implementation and provide additional context.
-
-In a perfect scenario we do not have to change a lot as content is processed from the old implementation to the new distribution process by only adding another consumer to the queuing system that does write the messages to the event stream. The backend systems can be switched one by one, simply changing the consuming endpoint to the new version once it was developed and deployed. In this way both systems can exist next to each other for quite a long time, although the final switch should be terminated - it can be done by only writing to the event bus, leaving the old queuing system untouched.
+The backend systems can be switched one by one, simply changing the consuming endpoint to the new version once it was developed and deployed. In this way both systems can exist next to each other for quite a long time, although the final switch should be terminated - it can be done by only writing to the event bus, leaving the old queuing system untouched.
 
 <img src="0002-content-distribution-40-container.png" />
 
 # Drawbacks
-You should explain why we _wouldn't_ do this. There is a cost associated with these changes, and while there wouldn't be an RFC if the benefits didn't outweigh the drawbacks, your readers might not know all of the tradeoffs being made.
+There are a couple of drawbacks involved, most of them regarding the ETL processes. The most obvious is that we will have to invest in a new paradigm, which leads to necessary knowledge-sharing and mentoring of developers. This also applies to the use of data lakes, which work rather different (column-orientated) from non-relational data storages (row-orientated). Additionally, AWS data processes often are serverless, which will lead to coding in less-known domains for developers. 
 
-- ETL Processes 
-    - learnings for developers
-    - code in unknown domain
-    - code duplication in different "views"
-- Cloud Provider
-    - further lock-in through ETL Processes
-    - 
-
-halten die APIs das durch?
+One of the biggest impacts is that there will be a lot of code duplication and cross-process documentation necessary as data changes might have to be done in all ETL processes.
 
 
 # Alternatives
@@ -90,8 +82,7 @@ You need to answer why this design is the right design. To do so, you need to un
 
 
 # Unresolved Questions
-You should gather any open questions and either list them in the document (folks often use markdown quoting) or add them to this section at the end of the document. If you want to mark unresolved options inline
 
-> **Open Question:** this is an open question
+> **Open Question:** not sure if data processes should work like a deployment (generate data -> put into database -> test data -> switch servers / databases)
 
-Is the common format used. The quote and bold combination (plus its indent) makes it easy to spot when reading through the document.
+> **Open Question:** if we are updating all data with the search API processes for example, will the API be resilient enough for that? 
