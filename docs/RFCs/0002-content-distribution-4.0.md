@@ -42,7 +42,7 @@ Taking the Statista data lake as the foundation we are continuously processing t
 In order to set up this distribution process, we do have to set up ETL processes in order to process the data on a regular basis.
 > **Open Question:** This should be as often as possible, but only as often as necessary. As a thumb-rule we should refresh all data at least every three hours but shouldn't refresh more than once in fifteen minutes.
 
-<img src="../../images/architecture40_c4_system_context.png" width="800">
+<img src="0002-content-distribution-40-context.png" width="800">
 
 * Introduction of new named concepts
   
@@ -66,7 +66,7 @@ You can (and should) expand on the examples you used in the Guide Implementation
 
 In a perfect scenario we do not have to change a lot as content is processed from the old implementation to the new distribution process by only adding another consumer to the queuing system that does write the messages to the event stream. The backend systems can be switched one by one, simply changing the consuming endpoint to the new version once it was developed and deployed. In this way both systems can exist next to each other for quite a long time, although the final switch should be terminated - it can be done by only writing to the event bus, leaving the old queuing system untouched.
 
-<img src="../../images/architecture40_c4_system_container.png" width="800">
+<img src="0002-content-distribution-40-container.png" width="800">
 
 # Drawbacks
 You should explain why we _wouldn't_ do this. There is a cost associated with these changes, and while there wouldn't be an RFC if the benefits didn't outweigh the drawbacks, your readers might not know all of the tradeoffs being made.
