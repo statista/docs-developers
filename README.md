@@ -5,4 +5,4 @@ refer to docs/index.md
 
 and always remember
 
-#Specify the Future, don't document the past
+# Specify the Future, don't document the past
