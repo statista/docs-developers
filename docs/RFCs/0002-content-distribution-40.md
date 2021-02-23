@@ -62,7 +62,7 @@ In this context other processes often state the use of data warehouses to analyz
 # Reference Implementation
 In a perfect scenario we do not have to change a lot, as content is processed from the old implementation to the new distribution process by only adding another consumer to the queuing system that does write the messages to the new event stream.
 
-The backend systems can be switched one by one, simply by changing the consuming endpoint to the new version once it has been developed and deployed. In this way both systems can exist next to each other for quite a long time, although the final switch should be terminated - it can be done by only writing to the event bus, leaving the old queuing system untouched.
+The backend systems can be switched one by one, simply by changing the consuming endpoint to the new version once it has been developed and deployed. In this way both systems can exist next to each other for quite a long time. One system which will be more challenging to switch is the search process as the search index does contain all contents in one index - one solution for that would be to run the legacy and future index in parallel as separate indices. The final switch between both implementations should be terminated - it can be done by only writing to the event bus, leaving the old queuing system untouched.
 
 > **Open Question:** proposal: we will start with the main content and will switch to the new version for a certain content type, e.g. topic pages
 
