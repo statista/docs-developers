@@ -37,7 +37,7 @@ A future-proof reimplementation should:
 
 For the implementation of the Statista 4.0 content distribution process we rely on the concept of a data lake in order to store all data produced by either the content editors (ERI), data scientists (SMI), data analysts (R&A) as well as 3rd party raw content (e.g. CompanyDB).
 
-<img src="0002-content-distribution-40-context.png" />
+<img src="https://docs.statista.tech/RFCs/0002-content-distribution-40-context.png" />
 
 Taking the Statista data lake as the foundation we are continuously processing the data according to the needs of the recipient (e.g. frontend or search) and it's underlying technology - e.g. if the specific data item is needed in our search index the responsible developer or slice has to adjust the data process to include the data in question. Through building this foundation every slice / project can pick the data they want to have from the well-documented data lake and transform it to their needs. We do not need to store all data in every technology "just-in-case-of". This also shifts the responsibility to the according slice and in a well-architected scenario helps to fix performance problems and addresses data compliance easily. 
 
@@ -62,11 +62,11 @@ In this context other processes often state the use of data warehouses to analyz
 # Reference Implementation
 In a perfect scenario we do not have to change a lot, as content is processed from the old implementation to the new distribution process by only adding another consumer to the queuing system that does write the messages to the new event stream.
 
-The backend systems can be switched one by one, simply by changing the consuming endpoint to the new version once it has been developed and deployed. In this way both systems can exist next to each other for quite a long time, although the final switch should be terminated - it can be done by only writing to the event bus, leaving the old queuing system untouched.
+The backend systems can be switched one by one, simply by changing the consuming endpoint to the new version once it has been developed and deployed. In this way both systems can exist next to each other for quite a long time. One system which will be more challenging to switch is the search process as the search index does contain all contents in one index - one solution for that would be to run the legacy and future index in parallel as separate indices. The final switch between both implementations should be terminated - it can be done by only writing to the event bus, leaving the old queuing system untouched.
 
 > **Open Question:** proposal: we will start with the main content and will switch to the new version for a certain content type, e.g. topic pages
 
-<img src="0002-content-distribution-40-container.png" />
+<img src="https://docs.statista.tech/RFCs/0002-content-distribution-40-container.png" />
 
 # Drawbacks
 There are a couple of drawbacks involved, most of them regarding the ETL processes. The most obvious is that we will have to invest in a new paradigm, which leads to necessary knowledge-sharing and mentoring of developers. This also applies to the use of data lakes, which work rather different (column-orientated) from non-relational data storages (row-orientated). Additionally, AWS data processes often are serverless, which will lead to coding in less-known domains for developers. 
