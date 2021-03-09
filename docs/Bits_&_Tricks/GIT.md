@@ -2,7 +2,7 @@
 
 ## Common Problems
 
-* Local Git-Connection doesn't work any longer (did work before, especially on Windows Linux Subsystem)
+* Local Git-Connection doesn't work any longer (did work before)
 
     ```
     exec ssh-agent bash
